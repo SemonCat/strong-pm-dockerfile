@@ -4,9 +4,6 @@ RUN useradd -ms /bin/bash strong-pm \
     && chown -R strong-pm:strong-pm /usr/local \
     && su strong-pm -c "npm install -g strong-pm && npm cache clear"
 
-# Define mountable directories.
-VOLUME ["/home/strong-pm"]
-
 # Set up some semblance of an environment
 WORKDIR /home/strong-pm
 ENV HOME=/home/strong-pm PORT=3000
@@ -18,3 +15,6 @@ USER strong-pm
 EXPOSE 8701 3000
 
 ENTRYPOINT ["/usr/local/bin/sl-pm", "--base", ".", "--listen", "8701"]
+
+# Define mountable directories.
+VOLUME ["/home/strong-pm"]

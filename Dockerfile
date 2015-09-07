@@ -1,5 +1,8 @@
 FROM node:0.12
 
+# Define mountable directories.
+VOLUME ["/home/strong-pm"]
+
 RUN useradd -ms /bin/bash strong-pm \
     && chown -R strong-pm:strong-pm /usr/local \
     && su strong-pm -c "npm install -g strong-pm && npm cache clear"

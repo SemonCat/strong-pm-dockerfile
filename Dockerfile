@@ -15,6 +15,3 @@ USER strong-pm
 EXPOSE 8701 3000
 
 ENTRYPOINT ["/usr/local/bin/sl-pm", "--base", ".", "--listen", "8701"]
-
-# Define mountable directories.
-VOLUME ["/home/strong-pm"]
